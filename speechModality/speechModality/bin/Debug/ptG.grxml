@@ -1,0 +1,371 @@
+﻿<?xml version="1.0"?>
+<grammar xml:lang="pt-PT" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="rootRule" scope="public">
+	  <item>
+      <item repeat="0-1"><ruleref uri="#wake"/><tag>out.wake=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#change"/><tag>out.change=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#view"/><tag>out.view=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#moreLess"/><tag>out.moreLess=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#subaction"/><tag>out.subaction=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#transport"/><tag>out.transport=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#search"/><tag>out.search=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#coffee"/><tag>out.coffee=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#restaurant"/><tag>out.restaurant=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#health"/><tag>out.health=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#directions"/><tag>out.directions=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#info"/><tag>out.info=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#types"/><tag>out.types=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#spots"/><tag>out.spots=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#nearby"/><tag>out.nearby=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#location"/><tag>out.location=rules.latest();</tag></item>
+      <item repeat="0-1"><ruleref uri="#zoom"/><tag>out.zoom=rules.latest();</tag></item>
+     
+      <item repeat="0-1"><ruleref uri="#shutdown"/><tag>out.shutdown=rules.latest();</tag></item>   
+	  </item>
+	</rule>
+
+  <!-- Rules for waking up -->
+  <rule id="wake">
+    <one-of>
+      <item>olá<tag>out.wake="WAKE"</tag></item>
+      <item>bom dia<tag>out.wake="WAKE"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">google maps</item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for the search -->
+  <rule id="search">
+    <one-of>
+      <item>procura<tag>out.action="SEARCH"</tag></item>
+      <item>procurar<tag>out.action="SEARCH"</tag></item>
+      <item>existe<tag>out.action="SEARCH"</tag></item>
+      <item>encontra<tag>out.action="SEARCH"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">um</item>
+      <item repeat="0-1">uma</item>
+      <item repeat="0-1">algum</item>
+      <item repeat="0-1">nas proximidades</item>
+      <item repeat="0-1">nas redondezas</item>
+      <item repeat="0-1">por perto</item>
+      <item repeat="0-1">aqui perto</item>
+    </one-of>
+  </rule>
+  
+  <!-- Rules for getting directions-->
+  <rule id="directions">
+    <one-of>
+      <item>percurso<tag>out.action="DIRECTIONS"</tag></item>
+      <item>trajeto<tag>out.action="DIRECTIONS"</tag></item>
+      <item>direcções<tag>out.action="DIRECTIONS"</tag></item>
+      <item>caminho<tag>out.action="DIRECTIONS"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">para</item>
+      <item repeat="0-1">mostra</item>
+      <item repeat="0-1">mostra</item>
+      <item repeat="0-1">apresenta</item>
+      <item repeat="0-1">me</item>
+      
+    </one-of>
+  </rule>
+
+  <!-- Rules for diferent types of services -->
+  <rule id="types">
+    <one-of>
+      <item>restaurante<tag>out.service="restaurant"</tag></item>
+      <item>bar<tag>out.service="bar"</tag></item>
+      <item>café<tag>out.service="cafe"</tag></item>
+      <item>pastelaria<tag>out.service="bakery"</tag></item>
+      <item>hotel<tag>out.service="hotel"</tag></item>
+      <item>hospital<tag>out.service="hospital"</tag> </item>
+      <item>policia<tag>out.service="police"</tag></item>
+      <item>banco<tag>out.service="bank"</tag></item>
+      <item>bancos<tag>out.service="bank"</tag></item>
+      <item>multibanco<tag>out.service="atm"</tag></item>
+      <item>universidade<tag>out.service="university"</tag></item>
+      <item>aeroporto<tag>out.service="airport"</tag></item>
+      <item>parque diversões<tag>out.service="amusement_park"</tag></item>
+      <item>livraria<tag>out.service="book_store"</tag></item>
+      <item>paragem autocarro<tag>out.service="bus_station"</tag></item>
+      <item>parque campismo<tag>out.service="campground"</tag></item>
+      <item>oficina<tag>out.service="car_repair"</tag></item>
+      <item>lavagem carros<tag>out.service="car_wash"</tag></item>
+      <item>casino<tag>out.service="casino"</tag></item>
+      <item>cemitério<tag>out.service="cemetery"</tag></item>
+      <item>igreja<tag>out.service="church"</tag></item>
+      <item>dentista<tag>out.service="dentist"</tag></item>
+      <item>bombeiros<tag>out.service="fire_station"</tag></item>
+      <item>bomba gasolina<tag>out.service="gas_station"</tag></item>
+      <item>ginásio<tag>out.service="gym"</tag></item>
+      <item>lavandaria<tag>out.service="laundry"</tag></item>
+      <item>alojamento<tag>out.service="lodging"</tag></item>
+      <item>biblioteca<tag>out.service="library"</tag></item>
+      <item>discoteca<tag>out.service="night_club"</tag></item>
+      <item>parque<tag>out.service="park"</tag></item>
+      <item>paque estacionamento<tag>out.service="parking"</tag></item>
+      <item>farmácia<tag>out.service="pharmacy"</tag></item>
+      <item>escola<tag>out.service="school"</tag></item>
+      <item>centro comercial<tag>out.service="shopping_mall"</tag></item>
+      <item>supermercado<tag>out.service="supermarket"</tag></item>
+      <item>paragem táxis<tag>out.service="taxi_stand"</tag></item>
+      <item>estação comboios<tag>out.service="train_station"</tag></item>
+      <item>atração turística<tag>out.service="tourist_attraction"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">um</item>
+      <item repeat="0-1">uma</item>
+      <item repeat="0-1">outro</item>
+      <item repeat="0-1">de</item>
+    </one-of>
+  </rule>
+
+  <!-- Rule for a specific local-->
+  <rule id="spots">
+    <one-of>
+      <item repeat="0-1">o</item>
+      <item repeat="0-1">os</item>
+    </one-of>
+    <one-of>
+      <item>mcdonalds<tag>out.local="mcdonald's"</tag></item>
+      <item>continente<tag>out.local="continente"</tag></item>
+      <item>forum<tag>out.local="forum"</tag></item>
+      <item>glicinias<tag>out.local="glicinias"</tag></item>
+      <item>altice<tag>out.local="altice"</tag></item>
+      <item>ria<tag>out.local="ria"</tag></item>
+      <item>pingo doce<tag>out.local="pingo doce"</tag></item>
+      <item>salinas<tag>out.local="salinas"</tag></item>
+      <item>teatro aveirense<tag>out.local="teatro aveirense"</tag></item>
+      <item>loja do cidadão<tag>out.local="loja do cidadão"</tag></item>
+      <item>centro de saude<tag>out.local="centro de saude"</tag></item>
+      <item>segurança social<tag>out.local="segurança social"</tag></item>
+      <item>correios<tag>out.local="ctt"</tag></item>
+      <item>correios<tag>out.local="ctt"</tag></item>
+      <item>estação<tag>out.local="estação de aveiro"</tag></item>
+      <item>comboio<tag>out.local="estação de aveiro"</tag></item>
+      <item>veterinário<tag>out.local="veterinário"</tag></item>
+      <item>caixa geral<tag>out.service="cgd"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rule for coffee shops-->
+  <rule id="coffee">
+    <one-of>
+      <item repeat="0-1">o</item>
+      <item repeat="0-1">a</item>
+      <item repeat="0-1">pastelaria</item>
+      <item repeat="0-1">cafetaria</item>
+      <item repeat="0-1">padaria</item>
+      <item repeat="0-1">café</item>
+    </one-of>
+    <one-of>
+      <item>girassol<tag>out.local="cafetaria girassol"</tag></item>
+      <item>monlou<tag>out.local="monlou"</tag></item>
+      <item>barrica<tag>out.local="café a barrica"</tag></item>
+      <item>convívio<tag>out.local="convívio"</tag></item>
+      <item>ria<tag>out.local="ria café"</tag></item>
+      <item>doce<tag>out.local="doce aveiro"</tag></item>
+      <item>avenida<tag>out.local="avenida café"</tag></item>
+      <item>flor<tag>out.local="pastelaria flor de aveiro"</tag>
+      </item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">de</item>
+    </one-of>
+  </rule>
+
+  <!-- Rule for restaurants-->
+  <rule id="restaurant">
+    <one-of>
+      <item repeat="0-1">o</item>
+      <item repeat="0-1">a</item>
+      <item repeat="0-1">restaurante</item>
+    </one-of>
+    <one-of>
+      <item>ramona<tag>out.local="ramona"</tag></item>
+      <item>batel<tag>out.local="restaurante o batel"</tag></item>
+      <item>subenshi<tag>out.local="subenshi"</tag></item>
+      <item>kyoto<tag>out.local="kyoto"</tag></item>
+      <item>mercado<tag>out.local="restaurante mercado peixe"</tag></item>
+      <item>rodízio<tag>out.local="espeto do sul"</tag></item>
+      <item>maré cheia<tag>out.local="maré cheia"</tag></item>
+      <item>salpoente<tag>out.local="salpoente"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rule for health care-->
+  <rule id="health">
+    <one-of>
+      <item repeat="0-1">o</item>
+      <item repeat="0-1">a</item>
+      <item repeat="0-1">hospital</item>
+      <item repeat="0-1">farmácia</item>
+      <item repeat="0-1">centro</item>
+      <item repeat="0-1">saude</item>
+      <item repeat="0-1">clínica</item>
+      <item repeat="0-1">da</item>
+      <item repeat="0-1">do</item>
+      <item repeat="0-1">de</item>
+    </one-of>
+    <one-of>
+      <item>luz<tag>out.local="hospital da luz"</tag></item>
+      <item>baixo vouga<tag>out.local="centro hospitalar baixo vouga"</tag></item>
+      <item>saude<tag>out.local="centro de saude"</tag></item>
+      <item>veterinário<tag>out.local="hospital veterinário"</tag></item>
+      <item>veterenária<tag>out.local="clínica veterinária"</tag></item>
+      <item>médico<tag>out.local="centro médico"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">de</item>
+    </one-of>
+  </rule>
+  
+  <!-- Rule for getting a location-->
+  <rule id="location">
+    <one-of>
+      <item>Aveiro<tag>out.location="aveiro"</tag></item>
+      <item>Coimbra<tag>out.location="coimbra"</tag></item>
+      <item>Lisboa<tag>out.location="lisboa"</tag></item>
+      <item>Porto<tag>out.location="porto"</tag></item>
+      <item>Cantanhede<tag>out.location="cantanhede"</tag></item>
+      <item>Oliveira de Azemeis<tag>out.location="oliveira de azemeis"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for the change of source -->
+  <rule id="change">
+    <one-of>
+      <item>trocar<tag>out.action="CHANGE"</tag></item>
+      <item>troca<tag>out.action="CHANGE"</tag></item>
+      <item>modificar<tag>out.action="CHANGE"</tag></item>
+      <item>modifica<tag>out.action="CHANGE"</tag></item>
+      <item>alterar<tag>out.action="CHANGE"</tag></item>
+      <item>altera<tag>out.action="CHANGE"</tag></item>
+      <item>muda<tag>out.action="CHANGE"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">o</item>
+      <item repeat="0-1">local</item>
+      <item repeat="0-1">de</item>
+      <item repeat="0-1">a</item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for sub actions (Changes) -->
+  <rule id="subaction">
+    <one-of>
+      <item>meio de transporte<tag>out.subaction="TRANSPORTE"</tag></item>
+      <item>transporte<tag>out.subaction="TRANSPORTE"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">para</item>
+      <item repeat="0-1">da</item>
+      <item repeat="0-1">viagem</item>
+      <item repeat="0-1">do</item>
+    </one-of>
+  </rule>
+  
+  <!-- Rules for changing transports -->
+  <rule id="transport">
+    <one-of>
+      <item>carro<tag>out.transport="DRIVING"</tag></item>
+      <item>a pé<tag>out.transport="WALKING"</tag></item>
+      <item>caminhar<tag>out.transport="WALKING"</tag></item>
+      <item>bicicleta<tag>out.transport="BICYCLING"</tag></item>
+      <item>metro<tag>out.transport="TRANSIT"</tag></item>
+      <item>autocarro<tag>out.transport="TRANSIT"</tag></item>
+      <item>transportes públicos<tag>out.transport="TRANSIT"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for the get informations -->
+  <rule id="info">
+    <one-of>
+      <item repeat="0-1">número</item>
+      <item repeat="0-1">de</item>
+      <item repeat="0-1">do</item>
+      <item repeat="0-1">dá-me</item>
+      <item repeat="0-1">um</item>
+      <item repeat="0-1">acerca</item>
+      <item repeat="0-1">sobre</item>
+      <item repeat="0-1">alguma</item>
+      <item repeat="0-1">algumas</item>
+    </one-of>
+    <one-of>
+      <item>telemóvel<tag>out.info="PHONE NUMBER"</tag></item>
+      <item>telefone<tag>out.info="PHONE NUMBER"</tag></item>
+      <item>contacto<tag>out.info="PHONE NUMBER"</tag></item>
+      <item>informação<tag>out.info="INFORMAÇÃO"</tag></item>
+      <item>informações<tag>out.info="INFORMAÇÃO"</tag></item>
+      <item>distancia<tag>out.info="DISTANCIA"</tag></item>
+      <item>classificação<tag>out.info="RATING"</tag></item>
+    </one-of>
+    <one-of>
+      <item repeat="0-1">de</item>
+      <item repeat="0-1">do</item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for the shutdown -->
+  <rule id="shutdown">
+    <one-of>
+      <item>desligar<tag>out.action="SHUTDOWN"</tag></item>
+      <item>desliga<tag>out.action="SHUTDOWN"</tag></item>
+      <item>fechar programa<tag>out.action="SHUTDOWN"</tag></item>
+      <item>xau<tag>out.action="SHUTDOWN"</tag></item>
+      <item>adeus<tag>out.action="SHUTDOWN"</tag></item>
+    </one-of>
+  </rule>
+  
+  <!-- Rules for neaby-->
+  <rule id="nearby">
+    <one-of>
+      <item repeat="0-1">por</item>
+      <item repeat="0-1">nas</item>
+      <item repeat="0-1">mais</item>
+    </one-of>
+    <one-of>
+      <item>perto<tag>out.nearby="NEARBY"</tag></item>
+      <item>proximidades<tag>out.nearby="NEARBY"</tag></item>
+      <item>próximo<tag>out.nearby="NEARBY"</tag></item>
+      <item>redondezas<tag>out.nearby="NEARBY"</tag></item>
+      <item>aqui<tag>out.nearby="NEARBY"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Action zoom-->
+  <rule id="zoom">
+    <one-of>
+      <item repeat="0-1">o</item>
+    </one-of>
+    <one-of>
+      <item>zoom<tag>out.zoom="ZOOM"</tag></item>
+      <item>tamanho<tag>out.zoom="ZOOM"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for zoom-->
+  <rule id="moreLess">
+    <one-of>
+      <item>aumentar<tag>out.action="MORE"</tag> </item>
+      <item>maior<tag>out.action="MORE"</tag></item>
+      <item>diminuir<tag>out.action="LESS"</tag></item>
+      <item>menor<tag>out.action="LESS"</tag></item>
+    </one-of>
+  </rule>
+
+  <!-- Rules for view-->
+  <rule id="view">
+    <one-of>
+      <item repeat="0-1">modo</item>
+      <item repeat="0-1">para</item>
+    </one-of>
+    <one-of>
+      <item>visualização<tag>out.view="view"</tag></item>
+      <item>vista<tag>out.view="view"</tag></item>
+    </one-of>
+  </rule>
+  
+</grammar>
