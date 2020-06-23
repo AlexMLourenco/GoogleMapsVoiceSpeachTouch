@@ -8,15 +8,19 @@
         
  
 
-    Title="Second Modality" Height="135.868" Width="476.789">
-    
-    <Grid>
-          
-        <StackPanel Margin="20" Orientation="Horizontal">
-            <Button x:Name="b1" Content="RED" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="B1_OnClick"/>
-            <Button x:Name="b2" Content="BLUE" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="B2_OnClick"/>
-            <Button x:Name="b3" Content="YELLOW" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="B3_OnClick"/>
-            <Button x:Name="b4" Content="RECTANGLE YELLOW" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Click="B4_OnClick"/>
+    Title="Second Modality" Height="242.031" Width="515.228">
+
+    <Grid Margin="0,0,0,-3">
+
+        <StackPanel Margin="20,20,10,53">
+            <Button x:Name="b2" Content="Bicicleta" Click="B2_OnClick" Margin="0,0,356,0"/>
+            <Button x:Name="b5" Content="Caminhar" Click="B5_OnClick" Margin="0,0,356,0"/>
+            <Button x:Name="b1" Content="Carro" Click="B1_OnClick" Margin="0,0,356,0"/>
+            <Button x:Name="b3" Content="Transportes Públicos" Click="B3_OnClick" Margin="0,0,356,0"/>
+            <Button x:Name="b6" Content="Aumentar Zoom" Click="B6_OnClick" Margin="384,0,0,0"/>
+            <Button x:Name="b7" Content="Diminuir Zoom" Click="B7_OnClick" Margin="384,0,0,0"/>
+         
+
 
         </StackPanel>
 

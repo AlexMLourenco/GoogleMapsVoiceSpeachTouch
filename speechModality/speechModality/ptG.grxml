@@ -18,7 +18,6 @@
       <item repeat="0-1"><ruleref uri="#spots"/><tag>out.spots=rules.latest();</tag></item>
       <item repeat="0-1"><ruleref uri="#nearby"/><tag>out.nearby=rules.latest();</tag></item>
       <item repeat="0-1"><ruleref uri="#location"/><tag>out.location=rules.latest();</tag></item>
-      <item repeat="0-1"><ruleref uri="#zoom"/><tag>out.zoom=rules.latest();</tag></item>
      
       <item repeat="0-1"><ruleref uri="#shutdown"/><tag>out.shutdown=rules.latest();</tag></item>   
 	  </item>
@@ -256,8 +255,11 @@
   <!-- Rules for sub actions (Changes) -->
   <rule id="subaction">
     <one-of>
-      <item>meio de transporte<tag>out.subaction="TRANSPORTE"</tag></item>
-      <item>transporte<tag>out.subaction="TRANSPORTE"</tag></item>
+      <item>meio de transporte<tag>out.subaction="TRANSPORT"</tag></item>
+      <item>transporte<tag>out.subaction="TRANSPORT"</tag></item>
+      <item>zoom<tag>out.subaction="ZOOM"</tag></item>
+      <item>tamanho<tag>out.subaction="ZOOM"</tag></item>
+
     </one-of>
     <one-of>
       <item repeat="0-1">para</item>
@@ -336,7 +338,7 @@
   </rule>
 
   <!-- Action zoom-->
-  <rule id="zoom">
+  <!--<rule id="zoom">
     <one-of>
       <item repeat="0-1">o</item>
     </one-of>
@@ -345,6 +347,7 @@
       <item>tamanho<tag>out.zoom="ZOOM"</tag></item>
     </one-of>
   </rule>
+  -->
 
   <!-- Rules for zoom-->
   <rule id="moreLess">

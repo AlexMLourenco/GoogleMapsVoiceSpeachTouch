@@ -40,7 +40,7 @@ namespace secondModality
         //  NEW 
         //  A TEIXEIRA , 16 MAY 2018
 
-        internal void sendToFusion(string value)
+        internal void sendToFusionTransport(string value)
         {
              
         
@@ -49,7 +49,7 @@ namespace secondModality
         string json = "{ \"recognized\": [";
         //foreach (var resultSemantic in e.Result.Semantics)
 
-        String key = "color";
+        String key = "transport";
          
         json += "\"" + key + "\",\"" + value + "\", ";
 
@@ -77,13 +77,13 @@ namespace secondModality
             string json = "{ \"recognized\": [";
             //foreach (var resultSemantic in e.Result.Semantics)
 
-            String key = "shape";
-
-            json += "\"" + key + "\",\"" + value + "\", ";
-
-            key = "color";
+            String key = "action";
 
             json += "\"" + key + "\",\"" + value2 + "\", ";
+
+            key = "subaction";
+
+            json += "\"" + key + "\",\"" + value + "\", ";
         
             json = json.Substring(0, json.Length - 2);
               

@@ -61,18 +61,33 @@ namespace speechModality {
                 t.Speak("Desculpe não percebi. Repita por favor.");
                 //System.Threading.Thread.Sleep(2000);
             } else {
-                string json = "{\n";
-                foreach (var resultSemantic in e.Result.Semantics) { 
-                    foreach (var key in resultSemantic.Value) {
-                        json += "\"" + key.Key + "\": " + "\"" + key.Value.Value + "\",\n ";
-                        
-                    }
+                string json2 = "{ \"recognized\": [";
+                foreach (var resultSemantic in e.Result.Semantics)
+                    foreach (var key in resultSemantic.Value)
+                    {
+                        {
+                            json2 += "\"" + key.Key + "\",\"" + key.Value.Value + "\", ";
+                        }
                 }
-                json += "\"" + "mode" + "\": " + "\"" + this.mode + "\",\n ";
-                json = json.Substring(0, json.Length - 1);
-                json += "\n}";
                 
-                dynamic tojson = JsonConvert.DeserializeObject(json);
+                //json2 += "\"" + "mode" + "\", " + "\"" + this.mode + "\",\n ";
+                json2 = json2.Substring(0, json2.Length - 2);
+                json2 += "] }";
+                dynamic tojson2 = JsonConvert.DeserializeObject(json2);
+                string[] valuesAndKeys = tojson2.recognized.ToObject<string[]>();
+                int i = valuesAndKeys.Length;
+                string json3 = "{\n";
+                for (int j = 0; j < valuesAndKeys.Length; j++)
+                {
+                    json3 += "\"" + valuesAndKeys[j] + "\": " + "\"" + valuesAndKeys[j+1] + "\",\n ";
+                    j++;
+                }
+                
+                json3 = json3.Substring(0, json3.Length - 1);
+                json3 += "\n}";
+                Console.WriteLine(json3);
+                
+                dynamic tojson = JsonConvert.DeserializeObject(json3);
                 
 
                 if (tojson.wake != null) {
@@ -82,7 +97,7 @@ namespace speechModality {
                 }
                 String name = "";
                 if (wake) {
-                    if (json.Split(new string[] { "action" }, StringSplitOptions.None).Length > 3) {
+                    if (json3.Split(new string[] { "action" }, StringSplitOptions.None).Length > 3) {
                         t.Speak("Utilize só um comando de cada vez.");
                     } else {
                         //App.Current.Dispatcher.Invoke(() => {
@@ -139,7 +154,7 @@ namespace speechModality {
                                             if (name != "")
                                             {
                                                 tojson.service = name;
-                                                json = JsonConvert.SerializeObject(tojson);
+                                                json3 = JsonConvert.SerializeObject(tojson);
                                             }
                                         }
 
@@ -178,7 +193,7 @@ namespace speechModality {
                                         }
                                             if (name != ""){
                                                 tojson.local = name;
-                                                json = JsonConvert.SerializeObject(tojson);
+                                                json3 = JsonConvert.SerializeObject(tojson);
                                             }
                                         }
                                         
@@ -186,14 +201,14 @@ namespace speechModality {
 
                                     case "MORE":    // More zoom
 
-                                        if ((string)tojson.zoom != null)
+                                        if ((string)tojson.subaction == "ZOOM")
                                             t.Speak("Aumentei zoom");
                                             Console.WriteLine("Aumentei o zoom");
                                         break;
 
                                     case "LESS":    // Less zoom
 
-                                        if ((string)tojson.zoom != null)
+                                        if ((string)tojson.subaction == "ZOOM")
 
                                             t.Speak("Diminui zoom");
                                             Console.WriteLine("Diminui o zoom");
@@ -207,11 +222,14 @@ namespace speechModality {
                                         else if (tojson.subaction == "TRANSPORTE") {
                                             if ((string)tojson.transport != null) {
                                                 // Default: carro; Others: pé, bicicleta, metro, comboio, transportes publicos
-                                                mode = (string)tojson.transport.ToString();
-                                                t.Speak(string.Format("Modo de transporte alterado para {0}", api.Translate(mode)));
-                                                Console.WriteLine("Modo de transporte alterado para {0}", api.Translate(mode));
+                                                //mode = (string)tojson.transport.ToString();
+                                                t.Speak(string.Format("Modo de transporte alterado para {0}", api.Translate((string)tojson.transport)));
+                                                Console.WriteLine("Modo de transporte alterado para {0}", api.Translate((string)tojson.transport));
                                             }
                                             else t.Speak("Peço desculpa, não entendi o meio de transporte.");
+                                        }
+                                        else if(tojson.subaction == "ZOOM"){
+
                                         }
                                         else t.Speak("Peço desculpa, não entendi o que pertende alterar.");
 
@@ -259,7 +277,7 @@ namespace speechModality {
                                     Console.WriteLine("Olá! Como posso ajudar?");
                         }
                         //});
-                        var exNot = lce.ExtensionNotification(e.Result.Audio.StartTime + "", e.Result.Audio.StartTime.Add(e.Result.Audio.Duration) + "", e.Result.Confidence, json);
+                        var exNot = lce.ExtensionNotification(e.Result.Audio.StartTime + "", e.Result.Audio.StartTime.Add(e.Result.Audio.Duration) + "", e.Result.Confidence, json2);
                         //Console.WriteLine((string)exNot.ToString());
                         mmic.Send(exNot);
                     }

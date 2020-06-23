@@ -19,26 +19,36 @@ namespace secondModality
 
         private void B1_OnClick(object sender, RoutedEventArgs e)
         {
-            _sm.sendToFusion("RED");
+            _sm.sendToFusionTransport("DRIVING");
 
         }
 
         private void B2_OnClick(object sender, RoutedEventArgs e)
         {
-            _sm.sendToFusion("BLUE");
+            _sm.sendToFusionTransport("BICYCLING");
 
         }
         private void B3_OnClick(object sender, RoutedEventArgs e)
         {
-            _sm.sendToFusion("YELLOW");
+            _sm.sendToFusionTransport("TRANSIT");
 
         }
-
-        private void B4_OnClick(object sender, RoutedEventArgs e)
+        private void B5_OnClick(object sender, RoutedEventArgs e)
         {
-            _sm.sendToFusion("SQUARE","YELLOW");
-
+            _sm.sendToFusionTransport("WALKING");
         }
+
+        private void B6_OnClick(object sender, RoutedEventArgs e)
+        {
+            _sm.sendToFusion("ZOOM", "MORE");
+        }
+
+        private void B7_OnClick(object sender, RoutedEventArgs e)
+        {
+            _sm.sendToFusion("ZOOM", "LESS");
+        }
+
+       
 
 
 
