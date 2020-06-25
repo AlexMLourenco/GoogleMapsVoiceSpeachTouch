@@ -37,12 +37,12 @@ namespace AppGui
             driver.FindElement(By.Id("searchboxinput")).SendKeys(Keys.Enter);
         }
 
-        public void getDirections(IWebDriver driver, CLocation location, dynamic json)
+        public void getDirections(IWebDriver driver, CLocation location, dynamic json, String transport)
         {
             string tmpInput = "";
             int mode = 6;
             string[] coordenadas = location.getCoords();
-            switch ((string)json.mode.ToString())
+            switch (transport)
             {
                 case "WALKING":
                     mode = 2;

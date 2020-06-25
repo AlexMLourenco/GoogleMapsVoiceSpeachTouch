@@ -49,3 +49,21 @@ C:\Users\manel\Desktop\IM\teste fusion\secondModality\secondModality\obj\Debug\s
 C:\Users\manel\Desktop\IM\teste fusion\secondModality\secondModality\obj\Debug\secondModality.csproj.CopyComplete
 C:\Users\manel\Desktop\IM\teste fusion\secondModality\secondModality\obj\Debug\secondModality.exe
 C:\Users\manel\Desktop\IM\teste fusion\secondModality\secondModality\obj\Debug\secondModality.pdb
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\bin\Debug\secondModality.exe.config
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\bin\Debug\secondModality.exe
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\bin\Debug\secondModality.pdb
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\bin\Debug\Microsoft.Speech.dll
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\bin\Debug\mmisharp.pdb
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.csprojAssemblyReference.cache
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\MainWindow.g.cs
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\App.g.cs
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality_MarkupCompile.cache
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality_MarkupCompile.lref
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\MainWindow.baml
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.g.resources
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.Properties.Resources.resources
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.csproj.GenerateResource.cache
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.csproj.CoreCompileInputs.cache
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.csproj.CopyComplete
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.exe
+C:\Users\manel\Desktop\IM\assing4\GoogleMapsVoiceSpeachTouch\secondModality\secondModality\obj\Debug\secondModality.pdb
