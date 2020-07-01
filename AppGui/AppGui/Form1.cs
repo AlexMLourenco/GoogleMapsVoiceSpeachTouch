@@ -68,10 +68,12 @@ namespace AppGui
             {
                 //
 
-                Console.WriteLine(e.Message);
+                //Console.WriteLine(e.Message);
                 var doc = XDocument.Parse(e.Message);
                 var com = doc.Descendants("command").FirstOrDefault().Value;
                 dynamic json = JsonConvert.DeserializeObject(com);
+                Console.WriteLine((string)json.ToString());
+                json = convertToDict(json);
                 Console.WriteLine((string)json.ToString());
                 if (json.action != null)
                 {
@@ -79,29 +81,34 @@ namespace AppGui
                     {
                         case "SEARCH":
                             this.json = json;
-                            command.searchLocation(googledriver, coord, convertToDict(json));
+                            command.searchLocation(googledriver, coord,json);
                             break;
                         case "DIRECTIONS":
-                            command.getDirections(googledriver, coord, convertToDict(json), transport);
+                            command.getDirections(googledriver, coord, json, transport);
                             break;
                         case "MORE":
-                            command.zoomIn(googledriver, convertToDict(json));
+                            command.zoomIn(googledriver, json);
                             break;
                         case "LESS":
-                            command.zoomOut(googledriver, convertToDict(json));
+                            command.zoomOut(googledriver, json);
                             break;
                         case "CHANGE":
-                            dynamic dict = convertToDict(json);
-                            transport = (string)dict.transport.ToString();
+                            
+                            if (json.transport != null)
+                            {
+                                transport = (string)json.transport.ToString();
+                                Console.WriteLine("transport: " + transport);
+                            }
+                            
                             break;
                     }
                 }
             });
             
         }
-        public dynamic convertToDict(dynamic json)
+        public dynamic convertToDict(dynamic tojson2)
         {
-            dynamic tojson2 = JsonConvert.DeserializeObject(json);
+            
             string[] valuesAndKeys = tojson2.recognized.ToObject<string[]>();
             int i = valuesAndKeys.Length;
             string json3 = "{\n";

@@ -219,14 +219,14 @@ namespace speechModality {
                                         if ((string)tojson.view != null)
                                             t.Speak("Modo de visualização alterado com sucesso");
 
-                                        else if (tojson.subaction == "TRANSPORTE") {
+                                        else if (tojson.subaction == "TRANSPORT") {
                                             if ((string)tojson.transport != null) {
                                                 // Default: carro; Others: pé, bicicleta, metro, comboio, transportes publicos
                                                 //mode = (string)tojson.transport.ToString();
                                                 t.Speak(string.Format("Modo de transporte alterado para {0}", api.Translate((string)tojson.transport)));
                                                 Console.WriteLine("Modo de transporte alterado para {0}", api.Translate((string)tojson.transport));
                                             }
-                                            else t.Speak("Peço desculpa, não entendi o meio de transporte.");
+                                            else t.Speak("Selecione o meio de transporte na interface.");
                                         }
                                         else if(tojson.subaction == "ZOOM"){
 

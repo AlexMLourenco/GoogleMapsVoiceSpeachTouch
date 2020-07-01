@@ -90,14 +90,14 @@ namespace AppGui
         }
         public void zoomIn(IWebDriver driver, dynamic json)
         {
-            if((string)json.zoom != null)
+            if((string)json.subaction != null)
             {
                 driver.FindElement(By.Id("widget-zoom-in")).Click();
             }
         }
         public void zoomOut(IWebDriver driver, dynamic json)
         {
-            if ((string)json.zoom != null)
+            if ((string)json.subaction != null)
             {
                 driver.FindElement(By.Id("widget-zoom-out")).Click();
             }
